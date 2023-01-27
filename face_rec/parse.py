@@ -25,8 +25,7 @@ for key in dict:
     arrival_time_obj = datetime.strptime(arrival_time, '%I:%M:%S %p')
     departure_time_obj = datetime.strptime(departure_time, '%I:%M:%S %p')
     total_time = departure_time_obj - arrival_time_obj
-    if total_time > timedelta(minutes=2):
-        finalFile.write(f"{key} \n  Arrival: {arrival_time} \n  Departure: {departure_time} \n  Total: {total_time} \n")
+    finalFile.write(f"{key} \n  Arrival: {arrival_time} \n  Departure: {departure_time} \n  Total: {total_time} \n")
 
 
 
