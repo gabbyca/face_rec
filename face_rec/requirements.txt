@@ -1,0 +1,6 @@
+opencv-python 
+numpy
+datetime
+pytz
+timedelta
+face_recognition
