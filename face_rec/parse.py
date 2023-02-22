@@ -4,6 +4,8 @@ import _strptime
 from datetime import timedelta
 
 finalFile = open("finalData.txt","w")
+today = datetime.now().date()
+date = today.strftime('%d-%m-%Y')
 
 with open("logs.txt", "r") as f:
 
@@ -25,7 +27,7 @@ for key in dict:
     arrival_time_obj = datetime.strptime(arrival_time, '%I:%M:%S %p')
     departure_time_obj = datetime.strptime(departure_time, '%I:%M:%S %p')
     total_time = departure_time_obj - arrival_time_obj
-    finalFile.write(f"{key} \n  Arrival: {arrival_time} \n  Departure: {departure_time} \n  Total: {total_time} \n")
+    finalFile.write(f"{date} \n \n{key} \n Arrival:{arrival_time} \n Departure:{departure_time} \n Total:{total_time} \n")
 
 
 

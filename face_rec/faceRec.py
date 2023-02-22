@@ -47,7 +47,6 @@ owen_face_encoding = face_recognition.face_encodings(owen_image)[0]
 juan_image = face_recognition.load_image_file("facesDatabase/Juan.png")
 juan_face_encoding = face_recognition.face_encodings(juan_image)[0]
 
-
 known_face_encodings = [
     gabby_face_encoding,
     layne_face_encoding, 
@@ -83,7 +82,7 @@ students = []
 
 #write video
 fps = int(stream.get(cv2.CAP_PROP_FPS))
-t= time.localtime()
+t = time.localtime()
 current_time = time.strftime("%Y-%m-%d %H:%M:%S", t)
 output = cv2.VideoWriter('videoStorageOpencv/' + current_time + '.avi',cv2.VideoWriter_fourcc('M','J','P','G'),fps,(70,70))
 
@@ -133,7 +132,7 @@ while True:
             break
     else:
         print("Camera not found")
-        time.sleep(1)
+        time.sleep(1200)
 
 
 
