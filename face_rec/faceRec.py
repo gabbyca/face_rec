@@ -91,9 +91,10 @@ attendanceFile = open("attendance.txt","w")
 logsFile = open("logs.txt","w")
     
 while True:
-    ret, frame = stream.read()
-
-    if process_this_frame:
+    connected = stream.isOpened()
+    if connected:
+        ret, frame = stream.read()
+        if process_this_frame:
             small_frame = cv2.resize(frame, (0, 0), fx=0.25, fy=0.25)
             rgb_small_frame = small_frame[:, :, ::-1]
             face_locations = face_recognition.face_locations(rgb_small_frame)
@@ -111,11 +112,11 @@ while True:
                     est_time = utc_time.astimezone(timezone('US/Eastern'))
                     time_string = est_time.strftime("%I:%M:%S %p")
                     logsFile.write(name + " , " + time_string + "\n")
-                face_names.append(name)
+                    face_names.append(name)
 
-    process_this_frame = not process_this_frame
+        process_this_frame = not process_this_frame
 
-    for (top, right, bottom, left), name in zip(face_locations, face_names):
+        for (top, right, bottom, left), name in zip(face_locations, face_names):
             top *= 4
             right *= 4
             bottom *= 4
@@ -126,21 +127,19 @@ while True:
             cv2.putText(frame, name, (left + 4, bottom - 4), font, 1.0, (255, 255, 255), 1)
 
 
-    cv2.imshow('Webcam', frame)
+        cv2.imshow('Webcam', frame)
 
-    if cv2.waitKey(1) & 0xFF == ord('q'):
-        break 
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            break
+    else:
+        print("Camera not found")
+        time.sleep(1)
 
-
-
-    
 
 
 inLab = list(set(students))
 for _ in inLab: 
     attendanceFile.write(_ + " was in the lab\n")
-
-
 
 attendanceFile.close()
 logsFile.close()
