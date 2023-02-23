@@ -9,9 +9,8 @@ from pytz import timezone
 import face_recognition
 
 
-
-#camera = 'tcp://192.168.1.252:5000'
-stream = cv2.VideoCapture(0)
+camera = 'tcp://10.161.140.140:5000'
+stream = cv2.VideoCapture(camera)
 
 #face_recognition
 gabby_image = face_recognition.load_image_file("facesDatabase/Gabby.png")
@@ -81,37 +80,51 @@ process_this_frame = True
 students = []
 
 #write video
-fps = int(stream.get(cv2.CAP_PROP_FPS))
+fourcc = cv2.VideoWriter_fourcc('m','p','4','v')
+fps = stream.get(cv2.CAP_PROP_FPS)
+frame_size = (int(stream.get(cv2.CAP_PROP_FRAME_WIDTH)), int(stream.get(cv2.CAP_PROP_FRAME_HEIGHT)))
 t = time.localtime()
+
 current_time = time.strftime("%Y-%m-%d %H:%M:%S", t)
-output = cv2.VideoWriter('videoStorageOpencv/' + current_time + '.avi',cv2.VideoWriter_fourcc('M','J','P','G'),fps,(70,70))
+out = cv2.VideoWriter("videoStorage/" + current_time + ".mp4", fourcc, fps, frame_size, True)
+
 
 attendanceFile = open("attendance.txt","w")
 logsFile = open("logs.txt","w")
-    
+
+
+# while True: 
+#     if stream.isOpened():
+#         break
+#     print("camera not found")
+#     time.sleep(10)
+
 while True:
     connected = stream.isOpened()
-    if connected:
-        ret, frame = stream.read()
-        if process_this_frame:
-            small_frame = cv2.resize(frame, (0, 0), fx=0.25, fy=0.25)
-            rgb_small_frame = small_frame[:, :, ::-1]
-            face_locations = face_recognition.face_locations(rgb_small_frame)
-            face_encodings = face_recognition.face_encodings(rgb_small_frame, face_locations)
-            face_names = []
-            for face_encoding in face_encodings:
-                matches = face_recognition.compare_faces(known_face_encodings, face_encoding)
-                name = "Unknown"
-                face_distances = face_recognition.face_distance(known_face_encodings, face_encoding)
-                best_match_index = np.argmin(face_distances)
-                if matches[best_match_index]:
-                    name = known_face_names[best_match_index]
-                    students.append(name)
-                    utc_time = datetime.now(timezone('UTC'))
-                    est_time = utc_time.astimezone(timezone('US/Eastern'))
-                    time_string = est_time.strftime("%I:%M:%S %p")
-                    logsFile.write(name + " , " + time_string + "\n")
-                    face_names.append(name)
+    if not connected: 
+        print("connection lost: retrying in 10 seconds")
+        time.sleep(10)
+        continue 
+    ret, frame = stream.read()
+    if process_this_frame:
+        small_frame = cv2.resize(frame, (0, 0), fx=0.25, fy=0.25)
+        rgb_small_frame = small_frame[:, :, ::-1]
+        face_locations = face_recognition.face_locations(rgb_small_frame)
+        face_encodings = face_recognition.face_encodings(rgb_small_frame, face_locations)
+        face_names = []
+        for face_encoding in face_encodings:
+            matches = face_recognition.compare_faces(known_face_encodings, face_encoding)
+            name = "Unknown"
+            face_distances = face_recognition.face_distance(known_face_encodings, face_encoding)
+            best_match_index = np.argmin(face_distances)
+            if matches[best_match_index]:
+                name = known_face_names[best_match_index]
+                students.append(name)
+                utc_time = datetime.now(timezone('UTC'))
+                est_time = utc_time.astimezone(timezone('US/Eastern'))
+                time_string = est_time.strftime("%I:%M:%S %p")
+                logsFile.write(name + " , " + time_string + "\n")
+                face_names.append(name)
 
         process_this_frame = not process_this_frame
 
@@ -125,15 +138,12 @@ while True:
             font = cv2.FONT_HERSHEY_DUPLEX
             cv2.putText(frame, name, (left + 4, bottom - 4), font, 1.0, (255, 255, 255), 1)
 
-
+        #show?
         cv2.imshow('Webcam', frame)
+        out.write(frame) # or is it out.write(frame)
 
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
-    else:
-        print("Camera not found")
-        time.sleep(1200)
-
 
 
 inLab = list(set(students))
@@ -143,6 +153,6 @@ for _ in inLab:
 attendanceFile.close()
 logsFile.close()
 stream.release()
-output.release()
+out.release()
 cv2.destroyAllWindows()
 
