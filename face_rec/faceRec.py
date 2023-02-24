@@ -93,11 +93,11 @@ attendanceFile = open("attendance.txt","w")
 logsFile = open("logs.txt","w")
 
 
-# while True: 
-#     if stream.isOpened():
-#         break
-#     print("camera not found")
-#     time.sleep(10)
+while True: 
+    if stream.isOpened():
+        break
+    print("camera not found")
+    time.sleep(10)
 
 while True:
     connected = stream.isOpened()
@@ -140,8 +140,8 @@ while True:
 
         #show?
         cv2.imshow('Webcam', frame)
-        out.write(frame) # or is it out.write(frame)
-
+        out.write(frame) 
+        
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
 
