@@ -1,4 +1,5 @@
 # face_rec
+PROGRAM NOW ONLY WORKS WITH CONNECTION TO RASPBERRY PI 
 
 To run program, clone git repo and save to Desktop (or any directory)
 In terminal, cd into directory with program
