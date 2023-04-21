@@ -1,6 +1,12 @@
 
 04/21/2023  
 Gabby 
- Arrival:09:08:04 AM 
- Departure:09:08:06 AM 
- Total:0:00:02 
+ Arrival:09:30:08 AM 
+ Departure:09:30:33 AM 
+ Total:0:00:25 
+
+04/21/2023  
+Bella 
+ Arrival:09:30:26 AM 
+ Departure:09:30:27 AM 
+ Total:0:00:01 
