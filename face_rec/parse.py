@@ -1,7 +1,9 @@
-import faceRec
+import faceRec as faceRec
 from datetime import datetime
-import _strptime
+import schedule
 from datetime import timedelta
+import time
+
 
 def updateFile(): 
     finalFile = open("DataTxtFiles/finalData.txt","a") #open as append? 
@@ -26,12 +28,10 @@ def updateFile():
         departure_time_obj = datetime.strptime(departure_time, '%I:%M:%S %p')
         total_time = departure_time_obj - arrival_time_obj
         finalFile.write(f"{date}  \n{key} \n Arrival:{arrival_time} \n Departure:{departure_time} \n Total:{total_time} \n")
+    finalFile.close()
 
 updateFile()
-# schedule.every(24).hours.do(updateFile)
-
-# #wait 3 mins before checking for a scheduled rule
-# while True: 
-#     schedule.run_pending()
-#     time.sleep(180) 
-
+schedule.every(24).hours.do(updateFile)
+while True: 
+    schedule.run_pending()
+    time.sleep(20) 

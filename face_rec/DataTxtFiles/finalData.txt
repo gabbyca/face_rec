@@ -10,3 +10,45 @@ Bella
  Arrival:09:30:26 AM 
  Departure:09:30:27 AM 
  Total:0:00:01 
+
+04/21/2023  
+Gabby 
+ Arrival:09:33:55 AM 
+ Departure:09:33:58 AM 
+ Total:0:00:03 
+
+04/21/2023  
+Gabby 
+ Arrival:09:34:56 AM 
+ Departure:09:35:03 AM 
+ Total:0:00:07 
+
+04/21/2023  
+Gabby 
+ Arrival:03:22:20 PM 
+ Departure:03:22:25 PM 
+ Total:0:00:05 
+
+04/21/2023  
+Reid 
+ Arrival:03:22:20 PM 
+ Departure:03:22:25 PM 
+ Total:0:00:05 
+
+04/27/2023  
+Gabby 
+ Arrival:08:49:08 AM 
+ Departure:08:49:30 AM 
+ Total:0:00:22 
+
+04/27/2023  
+Sara 
+ Arrival:08:49:10 AM 
+ Departure:08:49:21 AM 
+ Total:0:00:11 
+
+04/27/2023  
+Maya 
+ Arrival:08:49:14 AM 
+ Departure:08:49:19 AM 
+ Total:0:00:05 

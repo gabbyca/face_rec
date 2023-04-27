@@ -82,10 +82,10 @@ process_this_frame = True
 students = []
 
 #write video
-fps = int(stream.get(cv2.CAP_PROP_FPS))
-t= time.localtime()
-current_time = time.strftime("%Y-%m-%d %H:%M:%S", t)
-output = cv2.VideoWriter('videoStorage/' + current_time + '.avi',cv2.VideoWriter_fourcc('M','J','P','G'),fps,(70,70))
+# fps = int(stream.get(cv2.CAP_PROP_FPS))
+# t= time.localtime()
+# current_time = time.strftime("%Y-%m-%d %H:%M:%S", t)
+# output = cv2.VideoWriter('videoStorage/' + current_time + '.avi',cv2.VideoWriter_fourcc('M','J','P','G'),fps,(70,70))
 
 attendanceFile = open("DataTxtFiles/attendance.txt","w")
 logsFile = open("DataTxtFiles/logs.txt","w")
@@ -122,8 +122,6 @@ while True:
                     time_string = est_time.strftime("%I:%M:%S %p")
                     logsFile.write(name + " , " + time_string + "\n")
                 face_names.append(name)
-    #!!!!!!!!!!!
-    #TO DO:CONDITIONAL FOR IF FACE IS FOUND LONGER THAN THRESHOLD THEN DOC IT
     process_this_frame = not process_this_frame
 
     for (top, right, bottom, left), name in zip(face_locations, face_names):
@@ -138,7 +136,8 @@ while True:
 
 
     cv2.imshow('Webcam', frame)
-    output.write(frame)
+    # write video 
+    # output.write(frame)
 
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break 
@@ -152,5 +151,5 @@ for _ in inLab:
 attendanceFile.close()
 logsFile.close()
 stream.release()
-output.release()
+# output.release() write video 
 cv2.destroyAllWindows()
