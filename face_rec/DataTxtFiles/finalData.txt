@@ -1,54 +1,72 @@
 
-04/21/2023  
+05/01/2023  
 Gabby 
- Arrival:09:30:08 AM 
- Departure:09:30:33 AM 
- Total:0:00:25 
+ Arrival:12:39:19 PM 
+ Departure:12:39:25 PM 
+ Total:0:00:06 
 
-04/21/2023  
-Bella 
- Arrival:09:30:26 AM 
- Departure:09:30:27 AM 
- Total:0:00:01 
-
-04/21/2023  
+05/01/2023  
 Gabby 
- Arrival:09:33:55 AM 
- Departure:09:33:58 AM 
- Total:0:00:03 
+ Arrival:12:40:36 PM 
+ Departure:12:40:45 PM 
+ Total:0:00:09 
 
-04/21/2023  
+05/01/2023  
 Gabby 
- Arrival:09:34:56 AM 
- Departure:09:35:03 AM 
- Total:0:00:07 
+ Arrival:12:43:53 PM 
+ Departure:12:44:01 PM 
+ Total:0:00:08 
 
-04/21/2023  
+05/01/2023  
 Gabby 
- Arrival:03:22:20 PM 
- Departure:03:22:25 PM 
- Total:0:00:05 
+ Arrival:12:45:48 PM 
+ Departure:12:45:58 PM 
+ Total:0:00:10 
 
-04/21/2023  
-Reid 
- Arrival:03:22:20 PM 
- Departure:03:22:25 PM 
- Total:0:00:05 
-
-04/27/2023  
+05/01/2023  
 Gabby 
- Arrival:08:49:08 AM 
- Departure:08:49:30 AM 
- Total:0:00:22 
-
-04/27/2023  
-Sara 
- Arrival:08:49:10 AM 
- Departure:08:49:21 AM 
+ Arrival:12:52:50 PM 
+ Departure:12:53:01 PM 
  Total:0:00:11 
 
-04/27/2023  
-Maya 
- Arrival:08:49:14 AM 
- Departure:08:49:19 AM 
+05/01/2023  
+Gabby 
+ Arrival:12:54:57 PM 
+ Departure:12:55:10 PM 
+ Total:0:00:13 
+
+05/01/2023  
+Gabby 
+ Arrival:12:56:17 PM 
+ Departure:12:56:25 PM 
+ Total:0:00:08 
+
+05/01/2023  
+Gabby 
+ Arrival:12:57:21 PM 
+ Departure:12:57:26 PM 
  Total:0:00:05 
+
+05/01/2023  
+Gabby 
+ Arrival:01:01:33 PM 
+ Departure:01:01:39 PM 
+ Total:0:00:06 
+
+05/01/2023  
+Gabby 
+ Arrival:01:03:03 PM 
+ Departure:01:03:06 PM 
+ Total:0:00:03 
+
+05/01/2023  
+Reid 
+ Arrival:01:05:04 PM 
+ Departure:01:05:08 PM 
+ Total:0:00:04 
+
+05/01/2023  
+Gabby 
+ Arrival:01:05:05 PM 
+ Departure:01:05:08 PM 
+ Total:0:00:03 

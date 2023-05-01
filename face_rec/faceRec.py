@@ -138,7 +138,6 @@ while True:
     cv2.imshow('Webcam', frame)
     # write video 
     # output.write(frame)
-
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break 
 
